@@ -1,0 +1,60 @@
+.title {
+  position: relative;
+  display: inline-block;
+  font-size: 100px;
+  transform: scale3d(1.5, 1.5, 1.5);
+  text-shadow: 2px 2px 1px grey
+
+}
+
+.search{
+  margin-left: 30%;
+  margin-top: 10%;
+  perspective: 300px;
+}
+
+.l{color: #00CC00;}
+
+.O{color: #FFFF00;}
+
+.o{color: #FF7E00}
+
+.k{color: #FF0000}
+
+.u{color: #8F3F97}
+
+.p{color: #7E0023}
+
+.form{
+  margin-left: 26%;
+  margin-top: 5%;
+}
+
+
+.Good {
+  background-color: #00CC00
+}
+
+.Moderate {
+  background-color: #FFFF00
+}
+
+.Groups {
+  background-color: #FF7E00
+}
+
+.Unhealthy {
+  background-color: #FF0000
+}
+
+.Very {
+  background-color: #8F3F97
+}
+
+.Hazardous {
+  background-color: #7E0023
+}
+
+table tbody tr th{
+  margin: 300px
+}

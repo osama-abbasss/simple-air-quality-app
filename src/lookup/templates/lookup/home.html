@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}welcome at Weather App{% endblock %}
+
+
+{% block content %}
+
+{% if request.method == "GET" %}
+  <div class="search">
+      <div class="title l">L</div>
+      <div class="title O">o</div>
+      <div class="title o">O</div>
+      <div class="title k">k</div>
+      <div class="title u">U</div>
+      <div class="title p">p</div>
+  </div>
+  <div class="form">
+    <form class="form-inline my-2 my-lg-0" method="post" action="/">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" placeholder="enter zip code (american states)" aria-label="Search" name="q" style="width:52%">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+
+  {% else %}
+    <div class="form">
+      <form class="form-inline my-2 my-lg-0" method="post" >
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="enter zip code (american states)" aria-label="Search" name="q" style="width:52%">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    <hr>
+    {% if api %}
+      {% if api == 'error' %}
+        <h3>This Zip Code does not currently have Air Quality data available.</h3>
+
+      {% else %}
+      <div class="card">
+        <h5 class="card-header">{{ api.0.ReportingArea }}</h5>
+        <div class="card-body {{bg_color}}">
+          <h5 class="card-title">AQI = {{ api.0.AQI}}, it's {{ api.0.Category.Name}} </h5>
+          <p class="card-text">{{des|safe}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+{% endblock %}
